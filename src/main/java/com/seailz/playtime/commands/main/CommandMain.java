@@ -1,7 +1,7 @@
-package com.seailz.spigotplugintemplate.commands.main;
+package com.seailz.playtime.commands.main;
 
-import com.seailz.spigotplugintemplate.SpigotPluginTemplate;
-import com.seailz.spigotplugintemplate.commands.main.sub.CommandReport;
+import com.seailz.playtime.SpigotPluginTemplate;
+import com.seailz.playtime.commands.main.sub.CommandReport;
 import games.negative.framework.command.Command;
 import games.negative.framework.command.annotation.CommandInfo;
 import games.negative.framework.message.Message;
