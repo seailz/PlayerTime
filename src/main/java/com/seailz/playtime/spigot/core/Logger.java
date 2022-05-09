@@ -1,6 +1,6 @@
-package com.seailz.playtime.core;
+package com.seailz.playtime.spigot.core;
 
-import com.seailz.playtime.PlayTime;
+import com.seailz.playtime.spigot.PlayTime;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 

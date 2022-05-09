@@ -1,9 +1,9 @@
-package com.seailz.playtime;
+package com.seailz.playtime.spigot;
 
-import com.seailz.playtime.commands.main.CommandMain;
-import com.seailz.playtime.core.Locale;
-import com.seailz.playtime.core.Logger;
-import com.seailz.playtime.core.util.JSONUtil;
+import com.seailz.playtime.spigot.commands.main.CommandMain;
+import com.seailz.playtime.spigot.core.Locale;
+import com.seailz.playtime.spigot.core.Logger;
+import com.seailz.playtime.spigot.core.util.JSONUtil;
 import games.negative.framework.BasePlugin;
 import games.negative.framework.util.Task;
 import lombok.Getter;
@@ -11,7 +11,6 @@ import lombok.Setter;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
-import java.io.File;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -74,7 +73,7 @@ public final class PlayTime extends BasePlugin {
             df.setTimeZone(TimeZone.getTimeZone("GMT-0"));
             String strDate = df.format(date);
            if (Calendar.DAY_OF_WEEK == 7 && strDate.equals("18:00")) {
-               com.seailz.playtime.core.util.PlayTime.resetGlobalTime();
+               com.seailz.playtime.spigot.core.util.PlayTime.resetGlobalTime();
                Logger.log(Logger.LogLevel.SUCCESS, "Reset player times!");
            }
         });

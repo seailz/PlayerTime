@@ -49,7 +49,7 @@
                     <relocations>
                         <relocation>
                             <pattern>games.negative.framework</pattern>
-                            <shadedPattern>com.seailz.playtime.core.framework</shadedPattern>
+                            <shadedPattern>com.seailz.playtime.spigot.core.framework</shadedPattern>
                         </relocation>
                     </relocations>
                 </configuration>

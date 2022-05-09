@@ -1,4 +1,4 @@
-package com.seailz.playtime.core;
+package com.seailz.playtime.spigot.core;
 
 import games.negative.framework.message.Message;
 import lombok.Getter;
@@ -20,7 +20,8 @@ import java.util.List;
 
         ERROR_INVALID_PLAYER("error.invalidplayer", Collections.singletonList("&c&lERROR&f That player is invalid!")),
         NO_DATA("error.nodata", Collections.singletonList("&c&lERROR&f No data could be found!")),
-        TOP_TIME("toptime", Collections.singletonList("&b#%place%&f %player% - &b%time%"));
+        TOP_TIME("toptime", Collections.singletonList("&b#%place%&f %player% - &b%time%")),
+        TIME_OTHER("timeother", Collections.singletonList("&b&lTIME&f %player%'s playtime is &b%time%!"));
 
         private final String id;
         private final List<String> defaultMessage;
