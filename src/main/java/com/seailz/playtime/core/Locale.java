@@ -18,7 +18,9 @@ import java.util.List;
     @Getter
     public enum Locale {
 
-        ERROR_INVALID_PLAYER("error.invalidplayer", Collections.singletonList("&c&lERROR&f That player is invalid!"));
+        ERROR_INVALID_PLAYER("error.invalidplayer", Collections.singletonList("&c&lERROR&f That player is invalid!")),
+        NO_DATA("error.nodata", Collections.singletonList("&c&lERROR&f No data could be found!")),
+        TOP_TIME("toptime", Collections.singletonList("&b#%place%&f %player% - &b%time%"));
 
         private final String id;
         private final List<String> defaultMessage;
