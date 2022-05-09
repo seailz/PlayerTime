@@ -1,6 +1,6 @@
-package com.seailz.spigotplugintemplate.core;
+package com.seailz.playtime.core;
 
-import com.seailz.spigotplugintemplate.SpigotPluginTemplate;
+import com.seailz.playtime.SpigotPluginTemplate;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 

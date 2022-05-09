@@ -1,4 +1,4 @@
-package com.seailz.spigotplugintemplate.core;
+package com.seailz.playtime.core;
 
 import games.negative.framework.message.Message;
 import lombok.Getter;

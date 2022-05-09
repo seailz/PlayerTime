@@ -1,8 +1,8 @@
-package com.seailz.spigotplugintemplate;
+package com.seailz.playtime;
 
-import com.seailz.spigotplugintemplate.commands.main.CommandMain;
-import com.seailz.spigotplugintemplate.core.Locale;
-import com.seailz.spigotplugintemplate.core.Logger;
+import com.seailz.playtime.commands.main.CommandMain;
+import com.seailz.playtime.core.Locale;
+import com.seailz.playtime.core.Logger;
 import games.negative.framework.BasePlugin;
 import lombok.Getter;
 import lombok.Setter;
@@ -57,7 +57,7 @@ public final class SpigotPluginTemplate extends BasePlugin {
         // Set details and register things
         register(RegisterType.COMMAND);
         register(RegisterType.LISTENER);
-        setDetails("Plugin", "Seailz", "me.seailz.com", ChatColor.RED);
+        setDetails("PlayTime", "Seailz", "me.seailz.com", ChatColor.RED);
 
         long finish = System.currentTimeMillis() - start;
         Logger.log(Logger.LogLevel.SUCCESS, "Started in " + String.valueOf(finish) + "ms!");

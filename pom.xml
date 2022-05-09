@@ -5,13 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.seailz</groupId>
-    <artifactId>SpigotPluginTemplate</artifactId>
+    <artifactId>PlayTime</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
 
-    <name>SpigotPluginTemplate</name>
+    <name>PlayTime</name>
 
-    <description>Plugin Template (Change this!)</description>
+    <description>Store player time on the server!</description>
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -49,7 +49,7 @@
                     <relocations>
                         <relocation>
                             <pattern>games.negative.framework</pattern>
-                            <shadedPattern>com.seailz.spigotplugintemplate.core.framework</shadedPattern>
+                            <shadedPattern>com.seailz.playtime.core.framework</shadedPattern>
                         </relocation>
                     </relocations>
                 </configuration>
@@ -92,6 +92,21 @@
             <artifactId>lombok</artifactId>
             <version>1.18.24</version>
             <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.9.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20220320</version>
+        </dependency>
+        <dependency>
+            <groupId>com.googlecode.json-simple</groupId>
+            <artifactId>json-simple</artifactId>
+            <version>1.1</version>
         </dependency>
     </dependencies>
 </project>
