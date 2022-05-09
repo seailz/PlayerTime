@@ -1,6 +1,6 @@
 package com.seailz.playtime.commands.main.sub;
 
-import com.seailz.playtime.SpigotPluginTemplate;
+import com.seailz.playtime.PlayTime;
 import com.seailz.playtime.core.Logger;
 import games.negative.framework.command.SubCommand;
 import games.negative.framework.command.annotation.CommandInfo;
@@ -19,7 +19,7 @@ import java.util.Objects;
         permission = "main.report"
 )
 public class CommandReport extends SubCommand {
-    private final SpigotPluginTemplate plugin = SpigotPluginTemplate.getInstance();
+    private final PlayTime plugin = PlayTime.getInstance();
 
     public CommandReport() {
         this.setPermission(plugin.getPluginName() + ".report");
