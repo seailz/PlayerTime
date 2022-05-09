@@ -23,6 +23,7 @@ public class PlayerLeave implements Listener {
         json.set("time", System.currentTimeMillis() - json.getLong("time"));
         json.reload();
 
+        PlayTime.getInstance().getPlayerFiles().remove(e.getPlayer());
         Logger.log(Logger.LogLevel.DEBUG, e.getPlayer().getName() + " has quit! Saving their time...");
     }
 }

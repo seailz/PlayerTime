@@ -2,6 +2,7 @@ package com.seailz.playtime.commands.main;
 
 import com.seailz.playtime.PlayTime;
 import com.seailz.playtime.commands.main.sub.CommandReport;
+import com.seailz.playtime.commands.main.sub.CommandTop;
 import games.negative.framework.command.Command;
 import games.negative.framework.command.annotation.CommandInfo;
 import games.negative.framework.message.Message;
@@ -19,7 +20,10 @@ public class CommandMain extends Command {
     String url;
 
     public CommandMain() {
-        this.addSubCommands(new CommandReport());
+        this.addSubCommands(
+                new CommandReport(),
+                new CommandTop()
+        );
         setName(PlayTime.instance.getPluginName().replaceAll(" ", ""));
         if (PlayTime.getInstance().getURL() == null) url = PlayTime.getInstance().getURL();
     }

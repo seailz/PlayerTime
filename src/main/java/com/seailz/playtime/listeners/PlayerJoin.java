@@ -23,6 +23,7 @@ public class PlayerJoin implements Listener {
         json.set("time", System.currentTimeMillis());
         json.reload();
 
+        PlayTime.getInstance().getPlayerFiles().put(e.getPlayer(), json);
         Logger.log(Logger.LogLevel.DEBUG, e.getPlayer().getName() + " has joined! Saving their time...");
     }
 }
