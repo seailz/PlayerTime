@@ -1,6 +1,6 @@
 package com.seailz.playtime.core;
 
-import com.seailz.playtime.SpigotPluginTemplate;
+import com.seailz.playtime.PlayTime;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 
@@ -17,23 +17,23 @@ public class Logger {
 
         switch (level) {
             case ERROR:
-                Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&e[SPIGOTPLUGIN] &8[&c&lERROR&r&8] &f" + message));
+                Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&e[PLAYTIME] &8[&c&lERROR&r&8] &f" + message));
                 break;
             case WARNING:
-                Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&e[SPIGOTPLUGIN] &8[&6&lWARNING&r&8] &f" + message));
+                Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&e[PLAYTIME] &8[&6&lWARNING&r&8] &f" + message));
                 break;
             case INFO:
-                Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&e[SPIGOTPLUGIN] &8[&e&lINFO&r&8] &f" + message));
+                Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&e[PLAYTIME] &8[&e&lINFO&r&8] &f" + message));
                 break;
             case SUCCESS:
-                Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&e[SPIGOTPLUGIN] &8[&a&lSUCCESS&r&8] &f" + message));
+                Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&e[PLAYTIME] &8[&a&lSUCCESS&r&8] &f" + message));
                 break;
             case DEBUG:
-                Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&e[SPIGOTPLUGIN] &8[&c&lDEBUG&r&8] &c" + message));
-                if (SpigotPluginTemplate.getInstance().isDebug())  SpigotPluginTemplate.getInstance().getDebugLog().add(message);
+                Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&e[PLAYTIME] &8[&c&lDEBUG&r&8] &c" + message));
+                if (PlayTime.getInstance().isDebug())  PlayTime.getInstance().getDebugLog().add(message);
                 break;
             case OUTLINE:
-                Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&e[SPIGOTPLUGIN] &7" + message));
+                Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&e[PLAYTIME] &7" + message));
                 break;
         }
     }

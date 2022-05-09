@@ -1,4 +1,4 @@
-package com.seailz.playtime.core;
+package com.seailz.playtime.core.util;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -114,6 +114,14 @@ public class JSONUtil {
         return -1;
     }
 
+    public long getLong(String key) {
+        try {
+            return Long.parseLong(getRawData(key));
+        } catch (Exception ex) {
+        }
+        return -1;
+    }
+
     public double getInteger(String key) {
         try {
             return Integer.parseInt(getRawData(key));
@@ -130,6 +138,19 @@ public class JSONUtil {
     public JSONArray getArray(String key) {
         return json.containsKey(key) ? (JSONArray) json.get(key)
                 : (defaults.containsKey(key) ? (JSONArray) defaults.get(key) : new JSONArray());
+    }
+
+    public void set(String key, Object object) {
+        JSONObject ob = new JSONObject();
+        ob.put(key, object);
+        try (FileWriter file = new FileWriter(this.file.getName())) {
+            //We can write any JSONArray or JSONObject instance to the file
+            file.write(json.toJSONString());
+            file.flush();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
 

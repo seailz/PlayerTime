@@ -1,6 +1,6 @@
 package com.seailz.playtime.commands.main;
 
-import com.seailz.playtime.SpigotPluginTemplate;
+import com.seailz.playtime.PlayTime;
 import com.seailz.playtime.commands.main.sub.CommandReport;
 import games.negative.framework.command.Command;
 import games.negative.framework.command.annotation.CommandInfo;
@@ -13,15 +13,15 @@ import org.bukkit.command.CommandSender;
 )
 public class CommandMain extends Command {
 
-    String color = "&" + SpigotPluginTemplate.getInstance().getColor().getChar();
-    String name = SpigotPluginTemplate.getInstance().getPluginName();
-    String author = SpigotPluginTemplate.getInstance().getDeveloper();
+    String color = "&" + PlayTime.getInstance().getColor().getChar();
+    String name = PlayTime.getInstance().getPluginName();
+    String author = PlayTime.getInstance().getDeveloper();
     String url;
 
     public CommandMain() {
         this.addSubCommands(new CommandReport());
-        setName(SpigotPluginTemplate.instance.getPluginName().replaceAll(" ", ""));
-        if (SpigotPluginTemplate.getInstance().getURL() == null) url = SpigotPluginTemplate.getInstance().getURL();
+        setName(PlayTime.instance.getPluginName().replaceAll(" ", ""));
+        if (PlayTime.getInstance().getURL() == null) url = PlayTime.getInstance().getURL();
     }
 
     @Override
