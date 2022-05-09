@@ -1,8 +1,8 @@
-package com.seailz.playtime.listeners;
+package com.seailz.playtime.spigot.listeners;
 
-import com.seailz.playtime.PlayTime;
-import com.seailz.playtime.core.Logger;
-import com.seailz.playtime.core.util.JSONUtil;
+import com.seailz.playtime.spigot.PlayTime;
+import com.seailz.playtime.spigot.core.Logger;
+import com.seailz.playtime.spigot.core.util.JSONUtil;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerQuitEvent;

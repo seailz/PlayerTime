@@ -1,7 +1,7 @@
-package com.seailz.playtime.commands.main.sub;
+package com.seailz.playtime.spigot.commands.main.sub;
 
-import com.seailz.playtime.PlayTime;
-import com.seailz.playtime.core.Logger;
+import com.seailz.playtime.spigot.PlayTime;
+import com.seailz.playtime.spigot.core.Logger;
 import games.negative.framework.command.SubCommand;
 import games.negative.framework.command.annotation.CommandInfo;
 import games.negative.framework.message.Message;
@@ -33,7 +33,7 @@ public class CommandReport extends SubCommand {
 
         String[] array = new String[]{
                 "===============================================================",
-                "              Detailed Report of %ident% from OrbitalApplication".replace("%ident%", Objects.requireNonNull(plugin.getConfig().getString("server-identifier"))),
+                "              Detailed Report of %ident% from PlayTime".replace("%ident%", Objects.requireNonNull(plugin.getConfig().getString("server-identifier"))),
                 "This is generally used to debug issues that are wrong with the plugin.",
                 "               Severe Errors: %x% | Minor errors: %y%".replace("%x%", String.valueOf(plugin.getMinorErrors())).replace("%y%", String.valueOf(plugin.getSevereErrors())),
                 "===============================================================",

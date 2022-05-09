@@ -1,4 +1,4 @@
-package com.seailz.playtime.core.util;
+package com.seailz.playtime.spigot.core.util;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

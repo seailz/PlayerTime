@@ -1,8 +1,8 @@
-package com.seailz.playtime.commands.main;
+package com.seailz.playtime.spigot.commands.main;
 
-import com.seailz.playtime.PlayTime;
-import com.seailz.playtime.commands.main.sub.CommandReport;
-import com.seailz.playtime.commands.main.sub.CommandTop;
+import com.seailz.playtime.spigot.PlayTime;
+import com.seailz.playtime.spigot.commands.main.sub.CommandReport;
+import com.seailz.playtime.spigot.commands.main.sub.CommandTop;
 import games.negative.framework.command.Command;
 import games.negative.framework.command.annotation.CommandInfo;
 import games.negative.framework.message.Message;

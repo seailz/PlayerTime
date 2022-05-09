@@ -1,8 +1,8 @@
-package com.seailz.playtime.commands.main.sub;
+package com.seailz.playtime.spigot.commands.main.sub;
 
-import com.seailz.playtime.PlayTime;
-import com.seailz.playtime.core.Locale;
-import com.seailz.playtime.core.util.JSONUtil;
+import com.seailz.playtime.spigot.PlayTime;
+import com.seailz.playtime.spigot.core.Locale;
+import com.seailz.playtime.spigot.core.util.JSONUtil;
 import games.negative.framework.command.SubCommand;
 import games.negative.framework.command.annotation.CommandInfo;
 import games.negative.framework.util.TimeUtil;
@@ -50,7 +50,7 @@ public class CommandTop extends SubCommand {
                                     o.getName()
                                             .replaceAll(".json", "")).getName())
                     .replace("%place%", String.valueOf(i))
-                    .replace("%amount%", readable)
+                    .replace("%time%", readable)
                     .send(
                             commandSender
                     );
