@@ -12,6 +12,7 @@ import java.io.File;
 public class PlayerJoin implements Listener {
     @EventHandler
     public void join(PlayerJoinEvent e) {
+        if (!e.getPlayer().hasPermission("time.tracker")) return;
         File folder = new File(PlayTime.getInstance().getDataFolder(), "/data");
         if (!folder.exists()) folder.mkdir();
         File file = new File(
