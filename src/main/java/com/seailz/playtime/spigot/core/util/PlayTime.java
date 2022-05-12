@@ -1,5 +1,6 @@
 package com.seailz.playtime.spigot.core.util;
 
+import games.negative.framework.util.cache.ObjectCache;
 import org.bukkit.entity.Player;
 
 import java.io.File;
@@ -12,9 +13,8 @@ public class PlayTime {
         this.p = p;
     }
 
-    public JSONUtil getFile() {
-        File file = new File(com.seailz.playtime.spigot.PlayTime.getInstance().getDataFolder() + "/data", p.getUniqueId() + ".json");
-        return new JSONUtil(file);
+    public File getFile() {
+        return null;
     }
 
     public void resetTime() {

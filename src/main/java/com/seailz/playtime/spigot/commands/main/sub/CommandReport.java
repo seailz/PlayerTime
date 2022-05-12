@@ -52,7 +52,9 @@ public class CommandReport extends SubCommand {
         Arrays.stream(array).forEach(line -> urlBuilder.append(line).append("\n"));
         new Message("&aGenerating report..").send(sender);
         try {
-            String url = new HasteBin().post(urlBuilder.toString(), false);
+            String url = new HasteBin(
+                    "https://bin.seailz.com"
+            ).post(urlBuilder.toString(), false);
             new Message("&aDetailed Report: &e" + url).send(sender);
         } catch (IOException e) {
             new Message("&cFailed to generate report. Please check the Console.").send(sender);

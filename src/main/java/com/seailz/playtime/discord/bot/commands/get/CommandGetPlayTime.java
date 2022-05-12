@@ -17,7 +17,7 @@ public class CommandGetPlayTime extends ListenerAdapter {
     public void onSlashCommandInteraction(@Nonnull SlashCommandInteractionEvent event) {
         String player = event.getOption("player").getAsString();
         if (!new File(PlayTime.getInstance().getDataFolder() + "/data",
-                Bukkit.getPlayer(player).getUniqueId() + ".json"
+                Bukkit.getOfflinePlayer(player).getUniqueId() + ".json"
         ).exists()) {
             event.replyEmbeds(
                     new EmbedBuilder()
@@ -30,7 +30,7 @@ public class CommandGetPlayTime extends ListenerAdapter {
         }
 
         File file = new File(PlayTime.getInstance().getDataFolder() + "/data",
-                Bukkit.getPlayer(player).getUniqueId() + ".json"
+                Bukkit.getOfflinePlayer(player).getUniqueId() + ".json"
         );
 
         JSONUtil json = new JSONUtil(
@@ -41,11 +41,12 @@ public class CommandGetPlayTime extends ListenerAdapter {
                 json.getLong("time")
         );
 
+
         event.replyEmbeds(
                 new EmbedBuilder()
                         .setTitle("**PLAYTIME**")
                         .setDescription(
-                                "**" + Bukkit.getPlayer(player).getName() + "** has **" + readable + "** of play time!"
+                                "**" + Bukkit.getOfflinePlayer(player).getName() + "** has **" + readable + "** of play time!"
                         )
                         .setColor(Color.CYAN)
                         .build()

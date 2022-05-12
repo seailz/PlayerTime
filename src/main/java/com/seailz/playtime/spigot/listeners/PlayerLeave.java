@@ -20,7 +20,8 @@ public class PlayerLeave implements Listener {
         );
         JSONUtil json =  new JSONUtil(file);
         PlayTime.getInstance().getPlayerFiles().put(e.getPlayer(), json);
-        json.set("time", System.currentTimeMillis() - json.getLong("time"));
+        json.set("time", System.currentTimeMillis() - json.getLong("user.time"));
+        json.save();
         json.reload();
 
         PlayTime.getInstance().getPlayerFiles().remove(e.getPlayer());

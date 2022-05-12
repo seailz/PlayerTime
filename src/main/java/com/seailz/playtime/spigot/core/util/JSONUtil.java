@@ -38,18 +38,7 @@ public class JSONUtil {
             }
             json = (JSONObject) parser.parse(new InputStreamReader(new FileInputStream(file), "UTF-8"));
 
-            defaults.put("WelcomeMessage", "Welcome to my server!");
-            defaults.put("MyNumber", 1337);
-
-            JSONObject myObject = new JSONObject();
-            myObject.put("Test", "test");
-            myObject.put("Test2", "test2");
-            defaults.put("MyObject", myObject);
-
-            JSONArray myArray = new JSONArray();
-            myArray.add("Value1");
-            myArray.add("Value2");
-            defaults.put("MyArray", myArray);
+            defaults.put("time", 0L);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
