@@ -1,6 +1,7 @@
 package com.seailz.playtime.spigot.commands.main;
 
 import com.seailz.playtime.spigot.PlayTime;
+import com.seailz.playtime.spigot.commands.main.sub.CommandGet;
 import com.seailz.playtime.spigot.commands.main.sub.CommandReport;
 import com.seailz.playtime.spigot.commands.main.sub.CommandTop;
 import games.negative.framework.command.Command;
@@ -22,7 +23,8 @@ public class CommandMain extends Command {
     public CommandMain() {
         this.addSubCommands(
                 new CommandReport(),
-                new CommandTop()
+                new CommandTop(),
+                new CommandGet()
         );
         setName(PlayTime.instance.getPluginName().replaceAll(" ", ""));
         if (PlayTime.getInstance().getURL() == null) url = PlayTime.getInstance().getURL();

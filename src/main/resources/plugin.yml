@@ -1,6 +1,6 @@
 name: PlayTime
 version: ${project.version}
-main: com.seailz.spigotplugintemplate.SpigotPluginTemplate
+main: com.seailz.playtime.spigot.PlayTime
 api-version: 1.18
 authors: [ Seailz ]
 description: Plugin Tempalte (Change this!)

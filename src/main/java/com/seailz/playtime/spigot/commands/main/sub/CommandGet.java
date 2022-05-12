@@ -23,6 +23,7 @@ public class CommandGet extends SubCommand {
                     Bukkit.getPlayer(args[0]).getUniqueId() + ".json"
                 ).exists()) {
             Locale.NO_DATA.send(sender);
+            return;
         }
 
         File file = new File(PlayTime.getInstance().getDataFolder() + "/data",

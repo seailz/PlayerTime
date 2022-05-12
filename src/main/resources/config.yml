@@ -1,2 +1,4 @@
 server-identifier: "server"
-token: "hello i'm a bot token"
+discord:
+  token: "hello i'm a bot token"
+  update-channel: "" # Channel ID to which you want the updates to be posted

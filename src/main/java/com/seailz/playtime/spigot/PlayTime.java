@@ -1,49 +1,41 @@
 package com.seailz.playtime.spigot;
 
+import com.seailz.playtime.discord.bot.PlayTimeBot;
+import com.seailz.playtime.discord.bot.backend.Bot;
 import com.seailz.playtime.spigot.commands.main.CommandMain;
 import com.seailz.playtime.spigot.core.Locale;
 import com.seailz.playtime.spigot.core.Logger;
 import com.seailz.playtime.spigot.core.util.JSONUtil;
+import com.seailz.playtime.spigot.core.util.profile.Profile;
+import com.seailz.playtime.spigot.core.util.Watcher;
+import com.seailz.playtime.spigot.core.util.profile.ProfileManager;
+import com.seailz.playtime.spigot.listeners.PlayerJoin;
+import com.seailz.playtime.spigot.listeners.PlayerLeave;
 import games.negative.framework.BasePlugin;
-import games.negative.framework.util.Task;
+import games.negative.framework.util.cache.ObjectCache;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
+import org.json.simple.JSONObject;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+import javax.security.auth.login.LoginException;
 import java.util.*;
 
 public final class PlayTime extends BasePlugin {
 
-    @Getter
-    @Setter
-    public static PlayTime instance;
-    @Getter
-    boolean debug;
-    @Getter
-    @Setter
-    private int minorErrors;
-    @Getter
-    @Setter
-    private int severeErrors;
-    @Getter
-    private ArrayList<String> debugLog;
-    @Getter
-    @Setter
-    private String pluginName;
-    @Getter
-    @Setter
-    private String developer;
-    @Getter
-    @Setter
-    private String URL = null;
-    @Getter
-    @Setter
-    private ChatColor color;
-    @Getter
-    private HashMap<Player, JSONUtil> playerFiles = new HashMap<>();
+    @Getter @Setter public static PlayTime instance;
+    @Getter boolean debug;
+    @Getter @Setter private int minorErrors;
+    @Getter @Setter private int severeErrors;
+    @Getter private ArrayList<String> debugLog;
+    @Getter @Setter private String pluginName;
+    @Getter @Setter private String developer;
+    @Getter @Setter private String URL = null;
+    @Getter @Setter private ChatColor color;
+    @Getter private Bot bot;
+    @Getter @Setter private ObjectCache<Profile> json;
+    @Getter private HashMap<Player, JSONUtil> playerFiles = new HashMap<>();
 
     @Override
     public void onEnable() {
@@ -61,22 +53,23 @@ public final class PlayTime extends BasePlugin {
         this.debug = getConfig().getBoolean("debug");
         saveDefaultConfig();
 
+        try {
+            bot = new PlayTimeBot(getConfig().getString("discord.token"));
+        } catch (LoginException e) {
+            Logger.log(Logger.LogLevel.ERROR, "Token is invalid, or Discord's servers are down!");
+            Logger.log(Logger.LogLevel.ERROR, "Token is invalid, or Discord's servers are down!");
+            Logger.log(Logger.LogLevel.ERROR, "Token is invalid, or Discord's servers are down!");
+            addError(true);
+            getDebugLog().add("Invalid bot ID!");
+            getServer().getPluginManager().disablePlugin(this);
+            return;
+        }
+
         // Set details and register things
+        setDetails("PlayTime", "Seailz", "me.seailz.com", ChatColor.RED);
         register(RegisterType.COMMAND);
         register(RegisterType.LISTENER);
-        setDetails("PlayTime", "Seailz", "me.seailz.com", ChatColor.RED);
-
-        Task.asyncDelayed(this, 100, () -> {
-            Date date = new Date();
-            DateFormat df = new SimpleDateFormat("HH:mm");
-
-            df.setTimeZone(TimeZone.getTimeZone("GMT-0"));
-            String strDate = df.format(date);
-           if (Calendar.DAY_OF_WEEK == 7 && strDate.equals("18:00")) {
-               com.seailz.playtime.spigot.core.util.PlayTime.resetGlobalTime();
-               Logger.log(Logger.LogLevel.SUCCESS, "Reset player times!");
-           }
-        });
+        register(RegisterType.WATCHER);
 
         long finish = System.currentTimeMillis() - start;
         Logger.log(Logger.LogLevel.SUCCESS, "Started in " + String.valueOf(finish) + "ms!");
@@ -100,8 +93,13 @@ public final class PlayTime extends BasePlugin {
                 break;
             case LISTENER:
                 registerListeners(
-                        // Register Listeners
+                        new PlayerJoin(),
+                        new PlayerLeave()
                 );
+                break;
+            case WATCHER:
+                new Watcher();
+                break;
         }
     }
 
@@ -125,5 +123,5 @@ public final class PlayTime extends BasePlugin {
     }
 
 
-    public enum RegisterType {COMMAND, LISTENER}
+    public enum RegisterType {COMMAND, LISTENER, WATCHER, JSON}
 }
