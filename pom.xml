@@ -101,7 +101,7 @@
         <dependency>
             <groupId>com.github.DV8FromTheWorld</groupId>
             <artifactId>JDA</artifactId>
-            <version>v5.0.0-alpha.11</version>
+            <version>5.0.0-alpha.12</version>
         </dependency>
     </dependencies>
 </project>
